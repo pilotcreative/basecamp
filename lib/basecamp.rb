@@ -1,5 +1,12 @@
+require "net/http"
+require "active_resource"
+
 require "basecamp/version"
 
-module Basecamp
-  # Your code goes here...
-end
+require "basecamp/resource"
+require "basecamp/resources/person"
+require "basecamp/resources/project"
+require "basecamp/resources/comment"
+require "basecamp/resources/message"
+
+require "basecamp/connection"

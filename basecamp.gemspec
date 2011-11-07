@@ -5,11 +5,15 @@ require "basecamp/version"
 Gem::Specification.new do |s|
   s.name        = "basecamp"
   s.version     = Basecamp::VERSION
-  s.authors     = ["Michał Krzyżanowski"]
+  s.authors     = ["Michał Krzyżanowski"]
   s.email       = ["michal.krzyzanowski+github@gmail.com"]
-  s.homepage    = ""
+  s.homepage    = "https://github.com/objectreload/basecamp"
   s.summary     = %q{TODO: Write a gem summary}
   s.description = %q{TODO: Write a gem description}
+
+  s.add_dependency "activeresource"
+
+  s.add_development_dependency "minitest"
 
   s.rubyforge_project = "basecamp"
 
@@ -17,8 +21,4 @@ Gem::Specification.new do |s|
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
   s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   s.require_paths = ["lib"]
-
-  # specify any dependencies here; for example:
-  # s.add_development_dependency "rspec"
-  # s.add_runtime_dependency "rest-client"
 end
