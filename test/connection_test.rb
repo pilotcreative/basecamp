@@ -9,7 +9,7 @@ class ConnectionTest < MiniTest::Unit::TestCase
 
   def test_do_not_change_headers_globally
     assert_equal({}, Basecamp::Project.headers)
-    assert_not_equal({}, @oauth_basecamp.projects.headers)
+    assert_equal({"Authorization" => "Token token=1234567890"}, @oauth_basecamp.projects.headers)
   end
 
   def test_require_ssl_in_oauth

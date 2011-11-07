@@ -11,7 +11,6 @@ module Basecamp
         Resource.password = attributes[:password]
       end
 
-      [:comment, :person, :message, :project].each {|resource| "Basecamp::#{resource.to_s.classify}".constantize.headers.merge!("Authorization" => "Token token=#{@access_token}") } if use_oauth?
       @site = attributes[:site]
       Resource.site = "#{use_ssl? ? "https" : "http"}://#{@site}"
     end
@@ -25,11 +24,11 @@ module Basecamp
     end
 
     def projects
-      Project
+      Proxy.new(Project, @access_token)
     end
 
     def people
-      Person
+      Proxy.new(Person, @access_token)
     end
   end
 end
