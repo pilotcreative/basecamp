@@ -14,6 +14,7 @@ Gem::Specification.new do |s|
   s.add_dependency "activeresource"
 
   s.add_development_dependency "minitest"
+  s.add_development_dependency "fakeweb"
 
   s.rubyforge_project = "basecamp"
 

@@ -1,6 +1,8 @@
 require "test_helper"
 class ConnectionTest < MiniTest::Unit::TestCase
   def setup
+    FakeWeb.allow_net_connect = false
+
     @oauth_basecamp = Basecamp::Connection.new({:site => "apple.basecamphq.com", :oauth_token => "1234567890"})
     @basic_basecamp = Basecamp::Connection.new({:site => "google.basecamphq.com", :user => "foo", :password => "bar"})
     @token_basecamp = Basecamp::Connection.new({:site => "mysite.basecamphq.com", :api_token => "0987654321", :use_ssl => true})
