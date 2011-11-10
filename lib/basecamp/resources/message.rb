@@ -1,5 +1,5 @@
 module Basecamp
-  class Message < Resource
+  class Message < ActiveResource::Base
     self.element_name = "post"
 
     def comment

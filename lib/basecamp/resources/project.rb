@@ -1,5 +1,5 @@
 module Basecamp
-  class Project < Resource
+  class Project < ActiveResource::Base
     def messages
       @message = Proxy.new(Message, self.token)
       @message.prefix = "/projects/#{self.id}/"

@@ -1,4 +1,4 @@
 module Basecamp
-  class Comment < Resource
+  class Comment < ActiveResource::Base
   end
 end
