@@ -1,4 +1,4 @@
 module Basecamp
-  class Person < ActiveResource::Base
+  class Person < Resource
   end
 end

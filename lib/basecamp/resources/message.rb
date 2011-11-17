@@ -1,10 +1,9 @@
 module Basecamp
-  class Message < ActiveResource::Base
-    self.element_name = "post"
-
-    def comment
-      Comment.prefix = "/posts/#{id}/"
-      Comment
+  class Message < Resource
+    def comments
+      @comments = Proxy.new(Comment, self.connection_attributes)
+      @comments.prefix = "/posts/#{self.id}/"
+      @comments
     end
   end
 end
