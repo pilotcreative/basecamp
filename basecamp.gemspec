@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.summary     = %q{TODO: Write a gem summary}
   s.description = %q{TODO: Write a gem description}
 
-  # s.add_dependency "activeresource"
+  s.add_dependency "activeresource"
 
   s.add_development_dependency "minitest"
   s.add_development_dependency "fakeweb"

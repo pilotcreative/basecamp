@@ -5,9 +5,19 @@ module Basecamp
     attr_accessor :site, :user, :password, :oauth_token, :use_ssl
 
     def initialize(attributes = {})
-      attributes.each do |name, value|  
-        send("#{name}=", value)  
-      end  
+      Object.const_set("Connection#{object_id}", Class.new)
+      attributes.each do |name, value|
+        if name == :api_token
+          self.user = value
+          self.password = "X"
+        else
+          send("#{name}=", value)
+        end
+      end
+    end
+
+    def to_s
+      "Connection#{object_id}"        
     end
 
     def projects
