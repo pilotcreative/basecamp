@@ -36,7 +36,7 @@ module Basecamp
       Proxy.new(Message, self)
     end
 
-    def comment
+    def comments
       Proxy.new(Comment, self)
     end
   end
