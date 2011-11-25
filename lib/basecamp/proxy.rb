@@ -3,17 +3,19 @@ module Basecamp
     instance_methods.each { |m| undef_method m unless m =~ /(^__|^send$|^object_id$)/ }
 
     def initialize(target, connection)
-      $klass = target
-      element_name = $klass.to_s.split("::").last
+      element_name = target.to_s.split("::").last.downcase
+      class_name = "#{element_name.classify}#{connection.object_id}"
       const = connection.to_s.constantize
 
-      unless const.const_defined?(element_name)
-        @target = const.const_set(element_name, Class.new($klass))
+      unless const.const_defined?(class_name)
+        @target = const.const_set(class_name, Class.new(target))
       else
-        @target = const.const_get(element_name)
+        @target = const.const_get(class_name)
       end
-
-      @target.connection_attributes = connection
+      @target.tap do |t|
+        t.connection_attributes = connection
+        t.element_name = element_name
+      end
     end
 
     protected
