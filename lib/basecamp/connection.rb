@@ -31,5 +31,13 @@ module Basecamp
     def companies
       Proxy.new(Company, self)
     end
+
+    def messages
+      Proxy.new(Message, self)
+    end
+
+    def comment
+      Proxy.new(Comment, self)
+    end
   end
 end
