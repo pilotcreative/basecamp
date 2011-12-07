@@ -12,5 +12,11 @@ module Basecamp
       @person.prefix = "/projects/#{self.id}/"
       @person
     end
+
+    def attachments
+      @attachment = Proxy.new(Attachment, self.connection_attributes)
+      @attachment.prefix = "/projects/#{self.id}/"
+      @attachment
+    end
   end
 end
