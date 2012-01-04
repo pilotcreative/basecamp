@@ -11,6 +11,7 @@ require "basecamp/resources/person"
 require "basecamp/resources/project"
 require "basecamp/resources/comment"
 require "basecamp/resources/message"
+require "basecamp/resources/time_entry"
 
 require "basecamp/connection"
 

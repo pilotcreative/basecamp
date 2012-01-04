@@ -18,5 +18,12 @@ module Basecamp
       @attachment.prefix = "/projects/#{self.id}/"
       @attachment
     end
+
+    def time_entries
+      @entry = Proxy.new(TimeEntry, self.connection_attributes)
+      @entry.prefix = "/projects/#{self.id}/"
+      @entry.element_name = "time_entry"
+      @entry
+    end
   end
 end
