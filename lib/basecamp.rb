@@ -12,6 +12,7 @@ require "basecamp/resources/project"
 require "basecamp/resources/comment"
 require "basecamp/resources/message"
 require "basecamp/resources/time_entry"
+require "basecamp/resources/todo_item"
 
 require "basecamp/connection"
 
